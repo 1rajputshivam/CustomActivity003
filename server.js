@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
  
-// Serve public static files (JS, CSS, etc.)
+// Serve public static files (JS, CSS, HTML, icon)
 app.use(express.static(path.join(__dirname, 'Public')));
  
 /* --------------------------------------------------
@@ -71,17 +71,17 @@ const executionCache = new Set();
  
 // Serve index.html for root
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'Public', 'index.html'));
 });
  
-// Serve Journey Builder config.json
+// Serve Journey Builder config.json from Public folder
 app.get('/.well-known/journeybuilder/config.json', (req, res) => {
-  res.sendFile(path.join(__dirname, 'config.json'));
+  res.sendFile(path.join(__dirname, 'Public', 'config.json'));
 });
  
 // Optional: serve icon
 app.get('/icon.png', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'icon.png'));
+  res.sendFile(path.join(__dirname, 'Public', 'icon.png'));
 });
  
 // Health check
@@ -120,5 +120,3 @@ app.post('/activity/stop', verifyJwt, (req, res) => res.sendStatus(200));
 app.listen(PORT, () => {
   console.log(`🚀 Custom Activity running on port ${PORT}`);
 });
-
-
