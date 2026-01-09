@@ -62,7 +62,9 @@ function evaluateDaytimeWindow(countryName) {
   };
 }
  
-
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'index.html'));
+});
  
 app.get('/health', (req, res) => res.send('OK'));
  
@@ -94,4 +96,5 @@ app.listen(PORT, () => {
   console.log(`🚀 Custom Activity running on port ${PORT}`);
 });
  
+
 
