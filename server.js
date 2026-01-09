@@ -120,3 +120,4 @@ app.post('/activity/stop', verifyJwt, (req, res) => res.sendStatus(200));
 app.listen(PORT, () => {
   console.log(`🚀 Custom Activity running on port ${PORT}`);
 });
+
