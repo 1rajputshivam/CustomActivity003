@@ -14,7 +14,7 @@ const PORT = process.env.PORT;
 -------------------------------------------------- */
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Public')));
 
 /* --------------------------------------------------
    JWT Validation Middleware (Journey Builder Security)
@@ -102,3 +102,4 @@ app.post('/activity/stop', verifyJwt, (req, res) => res.sendStatus(200));
 app.listen(PORT, () => {
   console.log(`🚀 Custom Activity running on port ${PORT}`);
 });
+
