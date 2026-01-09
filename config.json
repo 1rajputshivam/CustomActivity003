@@ -1,40 +1,69 @@
 {
+
   "workflowApiVersion": "1.1",
+
   "type": "REST",
 
   "metaData": {
+
     "icon": "public/icon.png",
+
     "category": "custom"
+
   },
 
   "applicationExtensionKey": "aethereus.daytime.window.check",
 
   "lang": {
+
     "en-US": {
+
       "name": "Daytime Window Check",
-      "description": "Checks if current time is within allowed window"
+
+      "description": "Checks if current time is within allowed sending window"
+
     }
+
   },
 
   "arguments": {
+
     "execute": {
+
       "inArguments": [
+
         { "subscriberKey": "{{Contact.Key}}" },
+
         { "country": "{{Activity.country}}" }
+
       ],
+
       "outArguments": [
+
         { "isWithinWindow": "" },
+
         { "currentHour": "" }
+
       ],
+
       "url": "https://customactivity003-production.up.railway.app/activity/execute",
+
       "verb": "POST",
+
       "format": "json",
+
       "useJwt": true,
+
       "timeout": 30000,
+
       "retryCount": 5,
+
       "retryDelay": 1000,
+
       "concurrentRequests": 8
+
     }
+
   },
 
   "configurationArguments": {
@@ -45,7 +74,9 @@
 
       "verb": "POST",
 
-      "format": "json"
+      "format": "json",
+
+      "useJwt": true
 
     },
 
@@ -55,7 +86,9 @@
 
       "verb": "POST",
 
-      "format": "json"
+      "format": "json",
+
+      "useJwt": true
 
     },
 
@@ -65,7 +98,9 @@
 
       "verb": "POST",
 
-      "format": "json"
+      "format": "json",
+
+      "useJwt": true
 
     },
 
@@ -75,35 +110,56 @@
 
       "verb": "POST",
 
-      "format": "json"
+      "format": "json",
+
+      "useJwt": true
 
     }
 
   },
- 
 
   "userInterfaces": {
+
     "configModal": {
+
       "url": "https://customactivity003-production.up.railway.app/index.html",
+
       "height": 600,
+
       "width": 600
+
     }
+
   },
 
   "schema": {
+
     "arguments": {
+
       "execute": {
+
         "inArguments": [
+
           { "name": "subscriberKey", "dataType": "Text", "direction": "in" },
+
           { "name": "country", "dataType": "Text", "direction": "in" }
+
         ],
+
         "outArguments": [
+
           { "name": "isWithinWindow", "dataType": "Boolean", "direction": "out" },
+
           { "name": "currentHour", "dataType": "Number", "direction": "out" }
+
         ]
+
       }
+
     }
+
   }
+
 }
 
-
+ 
