@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
  
 // Serve public static files (JS, CSS, etc.)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Public')));
  
 /* --------------------------------------------------
    JWT Validation Middleware
@@ -120,4 +120,5 @@ app.post('/activity/stop', verifyJwt, (req, res) => res.sendStatus(200));
 app.listen(PORT, () => {
   console.log(`🚀 Custom Activity running on port ${PORT}`);
 });
+
 
