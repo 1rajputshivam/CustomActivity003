@@ -62,10 +62,7 @@ function evaluateDaytimeWindow(countryName) {
   };
 }
  
-// Root route
-app.get('/', (req, res) => {
-  res.send('Journey Builder Custom Activity is running 🚀');
-});
+
  
 app.get('/health', (req, res) => res.send('OK'));
  
@@ -97,3 +94,4 @@ app.listen(PORT, () => {
   console.log(`🚀 Custom Activity running on port ${PORT}`);
 });
  
+
