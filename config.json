@@ -1,0 +1,68 @@
+{
+  "workflowApiVersion": "1.1",
+  "type": "REST",
+
+  "metaData": {
+    "icon": "public/icon.png",
+    "category": "custom"
+  },
+
+  "applicationExtensionKey": "aethereus.daytime.window.check",
+
+  "lang": {
+    "en-US": {
+      "name": "Daytime Window Check",
+      "description": "Checks if current time is within allowed window"
+    }
+  },
+
+  "arguments": {
+    "execute": {
+      "inArguments": [
+        { "subscriberKey": "{{Contact.Key}}" },
+        { "country": "{{Activity.country}}" }
+      ],
+      "outArguments": [
+        { "isWithinWindow": "" },
+        { "currentHour": "" }
+      ],
+      "url": "https://customactivity-d2fhehdre4hhdpev.centralindia-01.azurewebsites.net/activity/execute",
+      "verb": "POST",
+      "format": "json",
+      "useJwt": true,
+      "timeout": 30000,
+      "retryCount": 5,
+      "retryDelay": 1000,
+      "concurrentRequests": 8
+    }
+  },
+
+  "configurationArguments": {
+    "save": { "url": ".../activity/save", "verb": "POST", "useJwt": true },
+    "publish": { "url": ".../activity/publish", "verb": "POST", "useJwt": true },
+    "validate": { "url": ".../activity/validate", "verb": "POST", "useJwt": true }
+  },
+
+  "userInterfaces": {
+    "configModal": {
+      "url": "https://customactivity-d2fhehdre4hhdpev.centralindia-01.azurewebsites.net/index.html",
+      "height": 600,
+      "width": 600
+    }
+  },
+
+  "schema": {
+    "arguments": {
+      "execute": {
+        "inArguments": [
+          { "name": "subscriberKey", "dataType": "Text", "direction": "in" },
+          { "name": "country", "dataType": "Text", "direction": "in" }
+        ],
+        "outArguments": [
+          { "name": "isWithinWindow", "dataType": "Boolean", "direction": "out" },
+          { "name": "currentHour", "dataType": "Number", "direction": "out" }
+        ]
+      }
+    }
+  }
+}
