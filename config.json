@@ -38,10 +38,49 @@
   },
 
   "configurationArguments": {
-    "save": { "url": ".../activity/save", "verb": "POST", "useJwt": true },
-    "publish": { "url": ".../activity/publish", "verb": "POST", "useJwt": true },
-    "validate": { "url": ".../activity/validate", "verb": "POST", "useJwt": true }
+
+    "save": {
+
+      "url": "https://customactivity003-production.up.railway.app/activity/save",
+
+      "verb": "POST",
+
+      "format": "json"
+
+    },
+
+    "publish": {
+
+      "url": "https://customactivity003-production.up.railway.app/activity/publish",
+
+      "verb": "POST",
+
+      "format": "json"
+
+    },
+
+    "validate": {
+
+      "url": "https://customactivity003-production.up.railway.app/activity/validate",
+
+      "verb": "POST",
+
+      "format": "json"
+
+    },
+
+    "stop": {
+
+      "url": "https://customactivity003-production.up.railway.app/activity/stop",
+
+      "verb": "POST",
+
+      "format": "json"
+
+    }
+
   },
+ 
 
   "userInterfaces": {
     "configModal": {
@@ -66,4 +105,5 @@
     }
   }
 }
+
 
