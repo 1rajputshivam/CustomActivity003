@@ -6,7 +6,7 @@
 
   "metaData": {
 
-    "icon": "public/icon.png",
+    "icon": "https://customactivity003-production.up.railway.app/icon.png",
 
     "category": "custom"
 
@@ -163,3 +163,4 @@
 }
 
  
+
